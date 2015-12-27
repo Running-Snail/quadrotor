@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -68,6 +68,22 @@
 <wire x1="2.2098" y1="-1.905" x2="0" y2="-1.905" width="0.127" layer="19"/>
 <wire x1="0" y1="-1.905" x2="0" y2="0" width="0.127" layer="19"/>
 </package>
+<package name="BLT-HC05">
+<pad name="EN" x="0" y="0" drill="0.8" shape="square"/>
+<pad name="VCC" x="2.54" y="0" drill="0.8"/>
+<pad name="GND" x="5.08" y="0" drill="0.8"/>
+<pad name="TX" x="7.62" y="0" drill="0.8"/>
+<pad name="RX" x="10.16" y="0" drill="0.8"/>
+<pad name="STATE" x="12.7" y="0" drill="0.8"/>
+<wire x1="-1.27" y1="1.27" x2="13.97" y2="1.27" width="0.127" layer="21"/>
+<wire x1="13.97" y1="1.27" x2="13.97" y2="-37.338" width="0.127" layer="21"/>
+<wire x1="13.97" y1="-37.338" x2="-1.27" y2="-37.338" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-37.338" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
+<text x="2.54" y="-19.05" size="1.27" layer="21">BLT-HC05</text>
+</package>
+<package name="720MOTOR">
+<pad name="SHELL" x="0" y="0" drill="0.6" diameter="9"/>
+</package>
 </packages>
 <symbols>
 <symbol name="RT9013">
@@ -81,6 +97,27 @@
 <wire x1="20.32" y1="-12.7" x2="5.08" y2="-12.7" width="0.254" layer="94"/>
 <wire x1="5.08" y1="-12.7" x2="5.08" y2="2.54" width="0.254" layer="94"/>
 <text x="7.62" y="-15.24" size="1.778" layer="95">RT9013</text>
+</symbol>
+<symbol name="BLT-HC05">
+<pin name="EN" x="0" y="0" visible="pad" length="middle"/>
+<pin name="VCC" x="0" y="-2.54" visible="pad" length="middle"/>
+<pin name="TX" x="0" y="-5.08" visible="pad" length="middle"/>
+<pin name="RX" x="0" y="-7.62" visible="pad" length="middle"/>
+<pin name="STATE" x="0" y="-10.16" visible="pad" length="middle"/>
+<pin name="GND" x="0" y="-12.7" visible="pad" length="middle"/>
+<wire x1="5.08" y1="2.54" x2="12.7" y2="2.54" width="0.254" layer="94"/>
+<wire x1="12.7" y1="2.54" x2="12.7" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-15.24" x2="5.08" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-15.24" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<text x="5.08" y="-17.78" size="1.778" layer="96">BLT-HC05</text>
+</symbol>
+<symbol name="MOTOR-SHELL">
+<pin name="SHELL" x="0" y="0" visible="pad" length="middle"/>
+<wire x1="5.08" y1="2.54" x2="10.16" y2="2.54" width="0.254" layer="94"/>
+<wire x1="10.16" y1="2.54" x2="10.16" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<text x="5.08" y="-5.08" size="1.778" layer="95">MSHELL</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -96,6 +133,41 @@
 <connect gate="U" pin="NC" pad="4"/>
 <connect gate="U" pin="VIN" pad="1"/>
 <connect gate="U" pin="VOUT" pad="5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BLT-HC05">
+<gates>
+<gate name="U" symbol="BLT-HC05" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="BLT-HC05">
+<connects>
+<connect gate="U" pin="EN" pad="EN"/>
+<connect gate="U" pin="GND" pad="GND"/>
+<connect gate="U" pin="RX" pad="RX"/>
+<connect gate="U" pin="STATE" pad="STATE"/>
+<connect gate="U" pin="TX" pad="TX"/>
+<connect gate="U" pin="VCC" pad="VCC"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="720-MSHELL">
+<gates>
+<gate name="M" symbol="MOTOR-SHELL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="720MOTOR">
+<connects>
+<connect gate="M" pin="SHELL" pad="SHELL"/>
 </connects>
 <technologies>
 <technology name=""/>
