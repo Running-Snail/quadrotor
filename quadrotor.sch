@@ -2169,6 +2169,21 @@ In this library the device names are the same as the pin names of the symbols, t
 <package name="720MOTOR">
 <pad name="SHELL" x="0" y="0" drill="0.6" diameter="9"/>
 </package>
+<package name="MPU-6050">
+<pad name="VCC" x="0" y="0" drill="0.8"/>
+<pad name="GND" x="0" y="-2.54" drill="0.8"/>
+<pad name="SCL" x="0" y="-5.08" drill="0.8"/>
+<pad name="SDA" x="0" y="-7.62" drill="0.8"/>
+<pad name="XDA" x="0" y="-10.16" drill="0.8"/>
+<pad name="XCL" x="0" y="-12.7" drill="0.8"/>
+<pad name="AD0" x="0" y="-15.24" drill="0.8"/>
+<pad name="INT" x="0" y="-17.78" drill="0.8"/>
+<wire x1="-1.27" y1="1.27" x2="14.224" y2="1.27" width="0.127" layer="21"/>
+<wire x1="14.224" y1="1.27" x2="14.224" y2="-19.05" width="0.127" layer="21"/>
+<wire x1="14.224" y1="-19.05" x2="-1.27" y2="-19.05" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-19.05" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
+<text x="3.175" y="-9.525" size="1.27" layer="21">MPU-6050</text>
+</package>
 </packages>
 <symbols>
 <symbol name="RT9013">
@@ -2203,6 +2218,21 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="10.16" y1="-2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="5.08" y1="-2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
 <text x="5.08" y="-5.08" size="1.778" layer="95">MSHELL</text>
+</symbol>
+<symbol name="MPU-6050">
+<pin name="VCC" x="0" y="0" length="middle"/>
+<pin name="GND" x="0" y="-2.54" length="middle"/>
+<pin name="SCL" x="0" y="-5.08" length="middle"/>
+<pin name="SDA" x="0" y="-7.62" length="middle"/>
+<pin name="XDA" x="25.4" y="0" length="middle" rot="R180"/>
+<pin name="XCL" x="25.4" y="-2.54" length="middle" rot="R180"/>
+<pin name="AD0" x="25.4" y="-5.08" length="middle" rot="R180"/>
+<pin name="INT" x="25.4" y="-7.62" length="middle" rot="R180"/>
+<wire x1="5.08" y1="2.54" x2="20.32" y2="2.54" width="0.254" layer="94"/>
+<wire x1="20.32" y1="2.54" x2="20.32" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-10.16" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-10.16" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<text x="5.08" y="-12.7" size="1.778" layer="95">MPU-6050</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2253,6 +2283,28 @@ In this library the device names are the same as the pin names of the symbols, t
 <device name="" package="720MOTOR">
 <connects>
 <connect gate="M" pin="SHELL" pad="SHELL"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MPU-6050">
+<gates>
+<gate name="U" symbol="MPU-6050" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MPU-6050">
+<connects>
+<connect gate="U" pin="AD0" pad="AD0"/>
+<connect gate="U" pin="GND" pad="GND"/>
+<connect gate="U" pin="INT" pad="INT"/>
+<connect gate="U" pin="SCL" pad="SCL"/>
+<connect gate="U" pin="SDA" pad="SDA"/>
+<connect gate="U" pin="VCC" pad="VCC"/>
+<connect gate="U" pin="XCL" pad="XCL"/>
+<connect gate="U" pin="XDA" pad="XDA"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -2689,6 +2741,7 @@ Source: murata.co.jp</description>
 <part name="U$5" library="quadrotor" deviceset="720-MSHELL" device=""/>
 <part name="U$6" library="quadrotor" deviceset="720-MSHELL" device=""/>
 <part name="SW1" library="special" deviceset="SW_DIP-5" device=""/>
+<part name="U$7" library="quadrotor" deviceset="MPU-6050" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2725,7 +2778,7 @@ Source: murata.co.jp</description>
 <instance part="GND7" gate="1" x="2.54" y="63.5"/>
 <instance part="S1" gate="G$1" x="10.16" y="76.2" rot="R270"/>
 <instance part="SUPPLY2" gate="G$1" x="43.18" y="114.3"/>
-<instance part="JP5" gate="A" x="149.86" y="116.84"/>
+<instance part="JP5" gate="A" x="157.48" y="111.76"/>
 <instance part="JP9" gate="G$1" x="177.8" y="116.84" rot="MR0"/>
 <instance part="R3" gate="G$1" x="236.22" y="30.48" rot="R90"/>
 <instance part="LED1" gate="G$1" x="236.22" y="20.32"/>
@@ -2755,6 +2808,7 @@ Source: murata.co.jp</description>
 <instance part="U$5" gate="M" x="154.94" y="20.32"/>
 <instance part="U$6" gate="M" x="210.82" y="20.32"/>
 <instance part="SW1" gate="A" x="213.36" y="114.3" rot="R180"/>
+<instance part="U$7" gate="U" x="269.24" y="119.38"/>
 </instances>
 <busses>
 </busses>
@@ -2880,8 +2934,13 @@ Source: murata.co.jp</description>
 </segment>
 <segment>
 <pinref part="JP5" gate="A" pin="6"/>
-<wire x1="147.32" y1="111.76" x2="134.62" y2="111.76" width="0.1524" layer="91"/>
-<label x="134.62" y="111.76" size="1.778" layer="95"/>
+<wire x1="154.94" y1="106.68" x2="142.24" y2="106.68" width="0.1524" layer="91"/>
+<label x="142.24" y="106.68" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$7" gate="U" pin="GND"/>
+<wire x1="269.24" y1="116.84" x2="261.62" y2="116.84" width="0.1524" layer="91"/>
+<label x="261.62" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -2927,6 +2986,17 @@ Source: murata.co.jp</description>
 <label x="195.58" y="116.84" size="1.778" layer="95"/>
 <pinref part="SW1" gate="A" pin="2"/>
 <pinref part="SW1" gate="A" pin="3"/>
+</segment>
+<segment>
+<pinref part="U$7" gate="U" pin="VCC"/>
+<wire x1="269.24" y1="119.38" x2="261.62" y2="119.38" width="0.1524" layer="91"/>
+<label x="261.62" y="119.38" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="236.22" y1="35.56" x2="236.22" y2="40.64" width="0.1524" layer="91"/>
+<label x="238.76" y="40.64" size="1.778" layer="95"/>
+<wire x1="236.22" y1="40.64" x2="243.84" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AREF" class="0">
@@ -3099,12 +3169,6 @@ Source: murata.co.jp</description>
 <wire x1="154.94" y1="33.02" x2="142.24" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="236.22" y1="35.56" x2="236.22" y2="40.64" width="0.1524" layer="91"/>
-<label x="238.76" y="40.64" size="1.778" layer="95"/>
-<wire x1="236.22" y1="40.64" x2="243.84" y2="40.64" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <label x="223.52" y="119.38" size="1.778" layer="95"/>
 <pinref part="SW1" gate="A" pin="10"/>
 <wire x1="220.98" y1="119.38" x2="228.6" y2="119.38" width="0.1524" layer="91"/>
@@ -3116,8 +3180,8 @@ Source: murata.co.jp</description>
 </segment>
 <segment>
 <pinref part="JP5" gate="A" pin="1"/>
-<wire x1="147.32" y1="124.46" x2="134.62" y2="124.46" width="0.1524" layer="91"/>
-<label x="134.62" y="124.46" size="1.778" layer="95"/>
+<wire x1="154.94" y1="119.38" x2="142.24" y2="119.38" width="0.1524" layer="91"/>
+<label x="142.24" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PC0" class="0">
@@ -3154,12 +3218,22 @@ Source: murata.co.jp</description>
 <wire x1="91.44" y1="66.04" x2="99.06" y2="66.04" width="0.1524" layer="91"/>
 <label x="91.44" y="66.04" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$7" gate="U" pin="SDA"/>
+<wire x1="269.24" y1="111.76" x2="261.62" y2="111.76" width="0.1524" layer="91"/>
+<label x="261.62" y="111.76" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="PC5" class="0">
 <segment>
 <pinref part="ATMEGA328P" gate="G$1" pin="PC5(ADC5/SCL)"/>
 <wire x1="91.44" y1="63.5" x2="99.06" y2="63.5" width="0.1524" layer="91"/>
 <label x="91.44" y="63.5" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$7" gate="U" pin="SCL"/>
+<wire x1="269.24" y1="114.3" x2="261.62" y2="114.3" width="0.1524" layer="91"/>
+<label x="261.62" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ADC6" class="0">
@@ -3194,6 +3268,11 @@ Source: murata.co.jp</description>
 <wire x1="91.44" y1="45.72" x2="99.06" y2="45.72" width="0.1524" layer="91"/>
 <label x="91.44" y="45.72" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$7" gate="U" pin="INT"/>
+<wire x1="294.64" y1="111.76" x2="302.26" y2="111.76" width="0.1524" layer="91"/>
+<label x="297.18" y="111.76" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="PD4" class="0">
 <segment>
@@ -3223,10 +3302,10 @@ Source: murata.co.jp</description>
 <label x="91.44" y="22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="134.62" y1="114.3" x2="147.32" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="109.22" x2="154.94" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="JP5" gate="A" pin="5"/>
-<label x="134.62" y="114.3" size="1.778" layer="95"/>
-<label x="134.62" y="114.3" size="1.778" layer="95"/>
+<label x="142.24" y="109.22" size="1.778" layer="95"/>
+<label x="142.24" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MISO" class="0">
@@ -3236,8 +3315,8 @@ Source: murata.co.jp</description>
 <label x="91.44" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="134.62" y1="116.84" x2="147.32" y2="116.84" width="0.1524" layer="91"/>
-<label x="134.62" y="116.84" size="1.778" layer="95"/>
+<wire x1="142.24" y1="111.76" x2="154.94" y2="111.76" width="0.1524" layer="91"/>
+<label x="142.24" y="111.76" size="1.778" layer="95"/>
 <pinref part="JP5" gate="A" pin="4"/>
 </segment>
 </net>
@@ -3248,8 +3327,8 @@ Source: murata.co.jp</description>
 <label x="91.44" y="17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="134.62" y1="119.38" x2="147.32" y2="119.38" width="0.1524" layer="91"/>
-<label x="134.62" y="119.38" size="1.778" layer="95"/>
+<wire x1="142.24" y1="114.3" x2="154.94" y2="114.3" width="0.1524" layer="91"/>
+<label x="142.24" y="114.3" size="1.778" layer="95"/>
 <pinref part="JP5" gate="A" pin="3"/>
 </segment>
 </net>
@@ -3265,9 +3344,9 @@ Source: murata.co.jp</description>
 <label x="35.56" y="76.2" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="134.62" y1="121.92" x2="147.32" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="116.84" x2="154.94" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="JP5" gate="A" pin="2"/>
-<label x="134.62" y="121.92" size="1.778" layer="95"/>
+<label x="142.24" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$8" class="0">

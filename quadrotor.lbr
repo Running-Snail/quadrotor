@@ -84,6 +84,21 @@
 <package name="720MOTOR">
 <pad name="SHELL" x="0" y="0" drill="0.6" diameter="9"/>
 </package>
+<package name="MPU-6050">
+<pad name="VCC" x="0" y="0" drill="0.8"/>
+<pad name="GND" x="0" y="-2.54" drill="0.8"/>
+<pad name="SCL" x="0" y="-5.08" drill="0.8"/>
+<pad name="SDA" x="0" y="-7.62" drill="0.8"/>
+<pad name="XDA" x="0" y="-10.16" drill="0.8"/>
+<pad name="XCL" x="0" y="-12.7" drill="0.8"/>
+<pad name="AD0" x="0" y="-15.24" drill="0.8"/>
+<pad name="INT" x="0" y="-17.78" drill="0.8"/>
+<wire x1="-1.27" y1="1.27" x2="14.224" y2="1.27" width="0.127" layer="21"/>
+<wire x1="14.224" y1="1.27" x2="14.224" y2="-19.05" width="0.127" layer="21"/>
+<wire x1="14.224" y1="-19.05" x2="-1.27" y2="-19.05" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-19.05" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
+<text x="3.175" y="-9.525" size="1.27" layer="21">MPU-6050</text>
+</package>
 </packages>
 <symbols>
 <symbol name="RT9013">
@@ -118,6 +133,21 @@
 <wire x1="10.16" y1="-2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="5.08" y1="-2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
 <text x="5.08" y="-5.08" size="1.778" layer="95">MSHELL</text>
+</symbol>
+<symbol name="MPU-6050">
+<pin name="VCC" x="0" y="0" length="middle"/>
+<pin name="GND" x="0" y="-2.54" length="middle"/>
+<pin name="SCL" x="0" y="-5.08" length="middle"/>
+<pin name="SDA" x="0" y="-7.62" length="middle"/>
+<pin name="XDA" x="25.4" y="0" length="middle" rot="R180"/>
+<pin name="XCL" x="25.4" y="-2.54" length="middle" rot="R180"/>
+<pin name="AD0" x="25.4" y="-5.08" length="middle" rot="R180"/>
+<pin name="INT" x="25.4" y="-7.62" length="middle" rot="R180"/>
+<wire x1="5.08" y1="2.54" x2="20.32" y2="2.54" width="0.254" layer="94"/>
+<wire x1="20.32" y1="2.54" x2="20.32" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-10.16" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-10.16" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<text x="5.08" y="-12.7" size="1.778" layer="95">MPU-6050</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -168,6 +198,28 @@
 <device name="" package="720MOTOR">
 <connects>
 <connect gate="M" pin="SHELL" pad="SHELL"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MPU-6050">
+<gates>
+<gate name="U" symbol="MPU-6050" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MPU-6050">
+<connects>
+<connect gate="U" pin="AD0" pad="AD0"/>
+<connect gate="U" pin="GND" pad="GND"/>
+<connect gate="U" pin="INT" pad="INT"/>
+<connect gate="U" pin="SCL" pad="SCL"/>
+<connect gate="U" pin="SDA" pad="SDA"/>
+<connect gate="U" pin="VCC" pad="VCC"/>
+<connect gate="U" pin="XCL" pad="XCL"/>
+<connect gate="U" pin="XDA" pad="XDA"/>
 </connects>
 <technologies>
 <technology name=""/>
