@@ -2167,7 +2167,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <text x="2.54" y="-19.05" size="1.27" layer="21">BLT-HC05</text>
 </package>
 <package name="720MOTOR">
-<pad name="SHELL" x="0" y="0" drill="0.6" diameter="9"/>
+<pad name="SHELL" x="0" y="0" drill="7" diameter="9"/>
 </package>
 <package name="MPU-6050">
 <pad name="VCC" x="0" y="0" drill="0.8"/>
@@ -2714,7 +2714,7 @@ Source: murata.co.jp</description>
 <part name="JP5" library="pinhead" deviceset="PINHD-1X6" device=""/>
 <part name="JP9" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="R3" library="eagle-ltspice" deviceset="R" device="R0603" value="470"/>
-<part name="LED1" library="eagle-ltspice" deviceset="LED_E" device="SML0603" value="POWER"/>
+<part name="POW" library="eagle-ltspice" deviceset="LED_E" device="SML0603" value="POWER"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="U$2" library="quadrotor" deviceset="BLT-HC05" device=""/>
@@ -2736,12 +2736,12 @@ Source: murata.co.jp</description>
 <part name="C16" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uF"/>
 <part name="C17" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uF"/>
 <part name="C18" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uF"/>
-<part name="U$3" library="quadrotor" deviceset="720-MSHELL" device=""/>
 <part name="U$4" library="quadrotor" deviceset="720-MSHELL" device=""/>
 <part name="U$5" library="quadrotor" deviceset="720-MSHELL" device=""/>
 <part name="U$6" library="quadrotor" deviceset="720-MSHELL" device=""/>
 <part name="SW1" library="special" deviceset="SW_DIP-5" device=""/>
 <part name="U$7" library="quadrotor" deviceset="MPU-6050" device=""/>
+<part name="U$3" library="quadrotor" deviceset="720-MSHELL" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2781,7 +2781,7 @@ Source: murata.co.jp</description>
 <instance part="JP5" gate="A" x="157.48" y="111.76"/>
 <instance part="JP9" gate="G$1" x="177.8" y="116.84" rot="MR0"/>
 <instance part="R3" gate="G$1" x="236.22" y="30.48" rot="R90"/>
-<instance part="LED1" gate="G$1" x="236.22" y="20.32"/>
+<instance part="POW" gate="G$1" x="236.22" y="20.32"/>
 <instance part="GND11" gate="1" x="236.22" y="7.62"/>
 <instance part="GND12" gate="1" x="231.14" y="99.06"/>
 <instance part="U$2" gate="U" x="233.68" y="116.84"/>
@@ -2803,12 +2803,12 @@ Source: murata.co.jp</description>
 <instance part="C16" gate="G$1" x="210.82" y="25.4" rot="R180"/>
 <instance part="C17" gate="G$1" x="210.82" y="81.28" rot="R180"/>
 <instance part="C18" gate="G$1" x="154.94" y="81.28" rot="R180"/>
-<instance part="U$3" gate="M" x="154.94" y="76.2"/>
 <instance part="U$4" gate="M" x="210.82" y="76.2"/>
 <instance part="U$5" gate="M" x="154.94" y="20.32"/>
 <instance part="U$6" gate="M" x="210.82" y="20.32"/>
 <instance part="SW1" gate="A" x="213.36" y="114.3" rot="R180"/>
 <instance part="U$7" gate="U" x="269.24" y="119.38"/>
+<instance part="U$3" gate="M" x="154.94" y="76.2"/>
 </instances>
 <busses>
 </busses>
@@ -2885,7 +2885,7 @@ Source: murata.co.jp</description>
 <junction x="2.54" y="68.58"/>
 </segment>
 <segment>
-<pinref part="LED1" gate="G$1" pin="C"/>
+<pinref part="POW" gate="G$1" pin="C"/>
 <wire x1="236.22" y1="15.24" x2="236.22" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="GND11" gate="1" pin="GND"/>
 </segment>
@@ -3352,7 +3352,7 @@ Source: murata.co.jp</description>
 <net name="N$8" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
-<pinref part="LED1" gate="G$1" pin="A"/>
+<pinref part="POW" gate="G$1" pin="A"/>
 <wire x1="236.22" y1="25.4" x2="236.22" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
